@@ -4,9 +4,9 @@ from flask import Flask, Response, request, jsonify
 from scraper import search
 from os import getenv
 
-PORT = getenv("PORT") or 3000
+PORT = getenv("PORT") or 3303
 
-asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy()) # set policy for asyncio
+# asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy()) # set policy for asyncio
 loop = asyncio.new_event_loop()
 app = Flask("Just yt finder api")
 app.config["JSONIFY_PRETTYPRINT_REGULAR"] = True # pretty json

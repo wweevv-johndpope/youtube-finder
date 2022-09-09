@@ -5,11 +5,8 @@ from json import loads
 from util import buildTraceback
 
 # Basic configuration
-# base_url = "https://www.youtube.com/"
-# search_url = lambda q, sp: base_url + "results?" + urlencode({"search_query": q, "sp": sp})
-# search_url = lambda q, sp: base_url + "results?" + urlencode({ "sp":  "EgJAAQ%253D%253D"})
-# print("search_url",search_url)
-search_url = "https://www.youtube.com/results?search_query=&sp=EgJAAQ%253D%253D"
+base_url = "https://www.youtube.com/"
+search_url = lambda q, sp: base_url + "results?" + urlencode({ "sp":  "EgJAAQ%253D%253D"})
 
 def spFilter(t):
     if t == "any":
@@ -103,8 +100,7 @@ async def search(query: str, sp = "video"):
     return parseData(extracted)
 
 async def request(query: str, sp: str):
-    # url = search_url(query, sp)
-    url = "https://www.youtube.com/results?search_query=&sp=EgJAAQ%253D%253D"
+    url = search_url(query, sp)
 
     # Initializing request
     session = aiohttp.ClientSession()
